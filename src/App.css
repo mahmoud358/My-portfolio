@@ -1,0 +1,26 @@
+/* أنماط أساسية للتطبيق */
+.App {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* تحسين الأداء */
+* {
+  box-sizing: border-box;
+}
+
+/* تأثيرات التمرير السلس */
+html {
+  scroll-behavior: smooth;
+}
+
+/* تحسين إمكانية الوصول */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
