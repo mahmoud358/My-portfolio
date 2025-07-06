@@ -433,7 +433,7 @@ const ThreeScene = () => {
         <ShootingStars />
         <TechSpheres />
         <ParticleField />
-        {/* <CameraController /> */}
+        <CameraController />
 
         {/* تحكم الكاميرا */}
         <OrbitControls

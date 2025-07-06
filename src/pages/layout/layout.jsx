@@ -8,6 +8,7 @@ import IconHeader from '../../components/icon-header/IconHeader';
 // import RouteThumbnails from '../../components/route-thumbnails/RouteThumbnails';
 import ThreeScene from '../../components/threejs/ThreeScene';
 import { darkModeContext } from '../../context/dark-mode';
+import { CameraProvider } from '../../context/camera-context';
 
 const Layout = () => {
   const location = useLocation();
@@ -97,55 +98,57 @@ const Layout = () => {
   }
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${bgColor} ${textColor} relative`}>
-      {/* خلفية Three.js تغطي الشاشة بالكامل */}
-      <div className="fixed inset-0 w-full h-full ">
-        <ThreeScene />
-      </div>
-
-      {/* المحتوى الرئيسي في منتصف الصفحة مع تراكب */}
-      <div className="relative z-20 flex flex-col min-h-screen items-center justify-center px-4 py-8">
-        <Header />
-        <div className="flex flex-col md:flex-row w-full max-w-5xl gap-8 items-start justify-center mt-6">
-          <IconHeader />
-          <main className="flex-1 w-full max-w-3xl bg-white/70 dark:bg-gray-900/70 rounded-2xl shadow-xl p-8 backdrop-blur-md border border-white/20 mx-auto my-8 flex flex-col justify-center items-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={location.pathname}
-                initial="initial"
-                animate="in"
-                exit="out"
-                variants={pageVariants}
-                transition={pageTransition}
-                className="min-h-[60vh] flex flex-col justify-center items-center"
-              >
-                <Outlet />
-              </motion.div>
-            </AnimatePresence>
-          </main>
+    <CameraProvider>
+      <div className={`min-h-screen transition-colors duration-500 ${bgColor} ${textColor} relative`}>
+        {/* خلفية Three.js تغطي الشاشة بالكامل */}
+        <div className="fixed inset-0 w-full h-full ">
+          <ThreeScene />
         </div>
-        {/* الصور المصغرة للصفحات */}
-        {/* <RouteThumbnails /> */}
-      </div>
 
-      {/* تأثيرات إضافية */}
-      <div className="fixed bottom-4 right-4 z-30">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, -5, 0]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className={`w-4 h-4 rounded-full ${
-            isDarkMode ? 'bg-blue-400' : 'bg-blue-500'
-          } shadow-lg`}
-        />
+        {/* المحتوى الرئيسي في منتصف الصفحة مع تراكب */}
+        <div className="relative z-20 flex flex-col min-h-screen items-center justify-center px-4 py-8">
+          {/* <Header /> */}
+          <div className="flex flex-col md:flex-row w-full   mt-6">
+            <IconHeader />
+            <main className="flex-1     rounded-2xl shadow-xl p-8  border border-white/20  my-8 flex flex-col justify-center items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={location.pathname}
+                  initial="initial"
+                  animate="in"
+                  exit="out"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                  className="min-h-[60vh] flex flex-col justify-center items-center"
+                >
+                  <Outlet />
+                </motion.div>
+              </AnimatePresence>
+            </main>
+          </div>
+          {/* الصور المصغرة للصفحات */}
+          {/* <RouteThumbnails /> */}
+        </div>
+
+        {/* تأثيرات إضافية */}
+        <div className="fixed bottom-4 right-4 z-30">
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className={`w-4 h-4 rounded-full ${
+              isDarkMode ? 'bg-blue-400' : 'bg-blue-500'
+            } shadow-lg`}
+          />
+        </div>
       </div>
-    </div>
+    </CameraProvider>
   );
 };
 
