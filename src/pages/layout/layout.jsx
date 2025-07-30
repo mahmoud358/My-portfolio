@@ -108,9 +108,9 @@ const Layout = () => {
         {/* المحتوى الرئيسي في منتصف الصفحة مع تراكب */}
         <div className="relative z-20 flex flex-col min-h-screen items-center justify-center px-4 py-8">
           {/* <Header /> */}
-          <div className="flex flex-col md:flex-row w-full   mt-6">
+          <div className="flex flex-col md:flex-row  w-full   mt-6">
             <IconHeader />
-            <main className="flex-1     rounded-2xl shadow-xl p-8  border border-white/20  my-8 flex flex-col justify-center items-center">
+            {/* <main className="flex-1     rounded-2xl shadow-xl p-8  border border-white/20  my-8 flex flex-col justify-center items-center"> */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={location.pathname}
@@ -119,12 +119,12 @@ const Layout = () => {
                   exit="out"
                   variants={pageVariants}
                   transition={pageTransition}
-                  className="min-h-[60vh] flex flex-col justify-center items-center"
+                  className="min-h-[60vh] w-full flex-1 flex-col justify-center items-center md:ms-14"
                 >
                   <Outlet />
                 </motion.div>
               </AnimatePresence>
-            </main>
+            {/* </main> */}
           </div>
           {/* الصور المصغرة للصفحات */}
           {/* <RouteThumbnails /> */}
