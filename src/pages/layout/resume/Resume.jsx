@@ -1,64 +1,64 @@
 import { motion } from 'framer-motion'
 import { FaDownload, FaGraduationCap, FaBriefcase, FaAward, FaCode } from 'react-icons/fa'
+import myCV from '../../../assets/Backend_CV .pdf'
 
 export default function Resume() {
   const education = [
     {
-      year: '2017 - 2021',
-      degree: 'بكالوريوس علوم الحاسوب',
-      institution: 'جامعة التقنية المتقدمة',
-      description: 'تخصص في تطوير البرمجيات وهندسة الحاسوب'
+      year: '2014 - 2019',
+      degree: 'Bachelor’s Degree of Civil engineering',
+      institution: 'South Valley University – SVU',
+      description: ['']
     },
     {
-      year: '2019 - 2020',
-      degree: 'دبلوم تطوير الويب',
-      institution: 'معهد التكنولوجيا الرقمية',
-      description: 'تطوير تطبيقات الويب الحديثة'
+      year: '2023 - 2024',
+      degree: 'Software Development Fundamentals Track',
+      institution: 'Information Technology Institute – ITI',
+      description: ['Led the development of an E-Commerce WordPress website, enhancing functionality and user interface.']
+    },
+    {
+      year: '2023 - 2024',
+      degree: 'Full-stack Web Development Using MERN Track',
+      institution: 'Information Technology Institute – ITI',
+      description: [`- Leading the development of a Udemy website utilizing Angular & React Framework for a seamless user experience.`,
+        `- Developed a Movie website utilizing React Framework and Redux for seamless user experience and optimization.`]
     }
   ]
 
   const experience = [
     {
-      year: '2023 - الحالي',
-      position: 'Full Stack Developer',
-      company: 'شركة التقنية المتقدمة',
-      description: [
-        'تطوير تطبيقات ويب كاملة باستخدام React و Node.js',
-        'إدارة قواعد البيانات وتطوير APIs',
-        'العمل مع فريق متعدد التخصصات',
-        'تحسين أداء التطبيقات وأمانها'
+      year: '2024 - 2025',
+      position: 'Full Stack Developer using MERN ',
+      company: 'Freelance',
+      description: [` Developed and maintained a full-featured chalet booking platform for the Saudi market.`,
+        ` Implemented backend architecture with Node.js, Express, MongoDB, and RESTful APIs.`,
+        ` Built role-based access, booking, subscriptions, admin controls, and support system.`,
+        ` Integrated real-time chat and notifications using Pusher.`,
+        ` Contributed to React + Tailwind CSS frontend components`,
       ]
     },
     {
-      year: '2022 - 2023',
-      position: 'Frontend Developer',
-      company: 'استوديو التصميم الرقمي',
-      description: [
-        'تطوير واجهات مستخدم تفاعلية وجذابة',
-        'العمل مع React و Vue.js',
-        'تحسين تجربة المستخدم',
-        'التعاون مع مصممي UI/UX'
-      ]
+      year: '2023 - 2024',
+      position: 'Full stack Developer using MERN (Intern)',
+      company: 'Information Technology Institute – ITI',
+      description: [` Developed and deployed 3+ Web applications (Udemy Clone,Twitter ,Movies website)`,
+        ` Integrated third-party APIs to enhance app functionality.`,
+        ` Improved app performance, reducing load time by 25%.`]
     },
     {
-      year: '2021 - 2022',
-      position: 'Web Developer Intern',
-      company: 'شركة البرمجيات المبتكرة',
-      description: [
-        'تعلم أساسيات تطوير الويب',
-        'المساعدة في تطوير مشاريع صغيرة',
-        'العمل مع HTML, CSS, JavaScript',
-        'التعرف على أدوات التطوير الحديثة'
-      ]
+      year: '2023 - 2024',
+      position: 'Software Development Fundamentals (Intern) ',
+      company: 'Information Technology Institute – ITI',
+      description: [` Led the development of an E-Commerce WordPress website, enhancing functionality and user interface.`]
     }
   ]
 
   const skills = {
-    'Frontend': ['React', 'Vue.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'],
-    'Backend': ['Node.js', 'Express.js', 'Python', 'Django', 'PHP', 'Laravel'],
-    'Database': ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Redis'],
-    'Tools': ['Git', 'Docker', 'AWS', 'Heroku', 'Figma', 'Adobe XD'],
-    'Other': ['REST APIs', 'GraphQL', 'WebRTC', 'PWA', 'SEO', 'Testing']
+    'Frontend': ['React', 'NextJs', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'Material UI'],
+    'Backend': ['Node.js', 'Express.js'],
+    'Database': ['MongoDB', 'MySQL', 'Firebase'],
+    'Tools': ['Git', 'GitHub', 'Postman', 'Swagger', 'Figma', 'Adobe XD'],
+    'Other': ['REST APIs', 'GraphQL', 'Testing']
   }
 
   const certifications = [
@@ -99,19 +99,23 @@ export default function Resume() {
           className='text-center mb-16'
         >
           <h1 className='text-5xl md:text-6xl font-bold text-white mb-6'>
-            السيرة الذاتية
+            Resume
           </h1>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8'>
-            خبراتي ومؤهلاتي في مجال تطوير الويب والبرمجيات
+            My experience and qualifications in the field of web and software development
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className='flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mx-auto'
-          >
-            <FaDownload />
-            تحميل السيرة الذاتية
-          </motion.button>
+          <motion.a href={myCV} download={`Mahmoud.pdf`}>
+            <motion.button
+
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className='flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mx-auto cursor-pointer'
+            >
+              <FaDownload />
+              Download Resume
+            </motion.button>
+          </motion.a>
+
         </motion.div>
 
         <div className='grid lg:grid-cols-3 gap-8'>
@@ -126,7 +130,7 @@ export default function Resume() {
               <div className='bg-gray-800 rounded-lg p-6'>
                 <div className='flex items-center gap-3 mb-6'>
                   <FaGraduationCap className='text-2xl text-blue-400' />
-                  <h2 className='text-2xl font-bold text-white'>التعليم</h2>
+                  <h2 className='text-2xl font-bold text-white'>Education</h2>
                 </div>
                 <div className='space-y-6'>
                   {education.map((edu, index) => (
@@ -134,7 +138,10 @@ export default function Resume() {
                       <div className='text-blue-400 font-medium text-sm'>{edu.year}</div>
                       <h3 className='text-lg font-semibold text-white mt-1'>{edu.degree}</h3>
                       <div className='text-gray-300 text-sm mt-1'>{edu.institution}</div>
-                      <p className='text-gray-400 text-sm mt-2'>{edu.description}</p>
+                      {edu.description.map((des, idx) => (
+                        <p className='text-gray-400 text-sm mt-2' key={idx}>{des}</p>
+                      ))}
+
                     </div>
                   ))}
                 </div>
@@ -150,7 +157,7 @@ export default function Resume() {
               <div className='bg-gray-800 rounded-lg p-6'>
                 <div className='flex items-center gap-3 mb-6'>
                   <FaCode className='text-2xl text-blue-400' />
-                  <h2 className='text-2xl font-bold text-white'>المهارات</h2>
+                  <h2 className='text-2xl font-bold text-white'>Skills</h2>
                 </div>
                 <div className='space-y-4'>
                   {Object.entries(skills).map(([category, skillList]) => (
@@ -173,7 +180,7 @@ export default function Resume() {
             </motion.section>
 
             {/* الشهادات */}
-            <motion.section
+            {/* <motion.section
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -193,7 +200,7 @@ export default function Resume() {
                   ))}
                 </div>
               </div>
-            </motion.section>
+            </motion.section> */}
           </div>
 
           {/* العمود الأيمن - الخبرات */}
@@ -206,7 +213,7 @@ export default function Resume() {
             <div className='bg-gray-800 rounded-lg p-6'>
               <div className='flex items-center gap-3 mb-8'>
                 <FaBriefcase className='text-2xl text-blue-400' />
-                <h2 className='text-2xl font-bold text-white'>الخبرات العملية</h2>
+                <h2 className='text-2xl font-bold text-white'>Work experience</h2>
               </div>
               <div className='space-y-8'>
                 {experience.map((exp, index) => (
@@ -245,13 +252,13 @@ export default function Resume() {
           className='mt-16'
         >
           <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8'>
-            <h3 className='text-2xl font-bold text-white mb-6 text-center'>إحصائيات مهنية</h3>
+            <h3 className='text-2xl font-bold text-white mb-6 text-center'>Professional statistics</h3>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
               {[
-                { number: '5+', label: 'سنوات خبرة' },
-                { number: '50+', label: 'مشروع مكتمل' },
-                { number: '15+', label: 'عميل سعيد' },
-                { number: '4', label: 'شهادات مهنية' }
+                { number: '1+', label: 'Years of experience' },
+                { number: '10+', label: 'Completed project' },
+                { number: '50+', label: 'Happy customer' },
+                { number: '3', label: 'Professional certificates' }
               ].map((stat, index) => (
                 <div key={index} className='text-center'>
                   <div className='text-3xl font-bold text-white mb-2'>{stat.number}</div>

@@ -3,7 +3,7 @@ import { FaCode, FaPalette, FaRocket, FaUsers } from 'react-icons/fa'
 
 export default function About() {
   const skills = [
-    { name: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS','Bootstrap', 'Three.js'] },
+    { name: 'Frontend', items: ['React','NextJs', 'TypeScript', 'Tailwind CSS','Bootstrap', 'Three.js'] },
     { name: 'Backend', items: ['Node.js', 'Express.js', 'MongoDB'] },
     { name: 'Tools', items: ['Git', 'Figma', 'Adobe XD'] },
     { name: 'Other', items: ['REST APIs', 'GraphQL', ' Real-time applications'] }
@@ -31,7 +31,7 @@ export default function About() {
     },
     {
       year: '2023 - 2024',
-      title: 'Software Development Fundamentals Track ',
+      title: 'Software Development Fundamentals (Intern) ',
       company: 'Information Technology Institute – ITI',
       description: [`- Led the development of an E-Commerce WordPress website, enhancing functionality and user interface.`]
     }

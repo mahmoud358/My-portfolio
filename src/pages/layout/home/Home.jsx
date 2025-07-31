@@ -46,7 +46,7 @@ export default function Home() {
             <div className="w-full">
               <h3 className="text-lg font-semibold text-white mb-2 text-center md:text-left">Technical Skills:</h3>
               <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                {['React', 'Angular','Tailwind CSS','Bootstrap','Material UI','Node.js', 'Three.js', 'TypeScript', 'MongoDB', 'Express.js'].map((skill, index) => (
+                {['React', 'Next','Angular','Tailwind CSS','Bootstrap','Material UI','Node.js', 'Three.js', 'TypeScript', 'MongoDB', 'Express.js'].map((skill, index) => (
                   <motion.span
                     key={skill}
                     initial={{ opacity: 0, scale: 0.8 }}
