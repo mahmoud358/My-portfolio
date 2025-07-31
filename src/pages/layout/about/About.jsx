@@ -3,30 +3,37 @@ import { FaCode, FaPalette, FaRocket, FaUsers } from 'react-icons/fa'
 
 export default function About() {
   const skills = [
-    { name: 'Frontend', items: ['React', 'Vue.js', 'TypeScript', 'Tailwind CSS', 'Three.js'] },
-    { name: 'Backend', items: ['Node.js', 'Express.js', 'MongoDB', 'PostgreSQL', 'Firebase'] },
-    { name: 'Tools', items: ['Git', 'Docker', 'AWS', 'Figma', 'Adobe XD'] },
-    { name: 'Other', items: ['REST APIs', 'GraphQL', 'WebRTC', 'PWA', 'SEO'] }
+    { name: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS','Bootstrap', 'Three.js'] },
+    { name: 'Backend', items: ['Node.js', 'Express.js', 'MongoDB'] },
+    { name: 'Tools', items: ['Git', 'Figma', 'Adobe XD'] },
+    { name: 'Other', items: ['REST APIs', 'GraphQL', ' Real-time applications'] }
   ]
 
   const experiences = [
     {
-      year: '2023 - الحالي',
-      title: 'Full Stack Developer',
-      company: 'شركة التقنية المتقدمة',
-      description: 'تطوير تطبيقات ويب حديثة باستخدام React و Node.js'
+      year: '2024 - 2025',
+      title: 'Full Stack Developer using MERN ',
+      company: 'Freelance',
+      description:[ `- Developed and maintained a full-featured chalet booking platform for the Saudi market.`,
+        `- Implemented backend architecture with Node.js, Express, MongoDB, and RESTful APIs.`,
+        `- Built role-based access, booking, subscriptions, admin controls, and support system.`,
+        `- Integrated real-time chat and notifications using Pusher.`,
+        `- Contributed to React + Tailwind CSS frontend components`,
+      ]
     },
     {
-      year: '2022 - 2023',
-      title: 'Frontend Developer',
-      company: 'استوديو التصميم الرقمي',
-      description: 'إنشاء واجهات مستخدم تفاعلية وجذابة'
+      year: '2023 - 2024',
+      title: 'Full stack Developer using MERN (Intern)',
+      company: 'Information Technology Institute – ITI',
+      description: [`- Developed and deployed 3+ Web applications (Udemy Clone,Twitter ,Movies website)`,
+                    `- Integrated third-party APIs to enhance app functionality.`,
+                    `- Improved app performance, reducing load time by 25%.`]
     },
     {
-      year: '2021 - 2022',
-      title: 'Web Developer Intern',
-      company: 'شركة البرمجيات المبتكرة',
-      description: 'تعلم أساسيات تطوير الويب والعمل في فريق'
+      year: '2023 - 2024',
+      title: 'Software Development Fundamentals Track ',
+      company: 'Information Technology Institute – ITI',
+      description: [`- Led the development of an E-Commerce WordPress website, enhancing functionality and user interface.`]
     }
   ]
 
@@ -41,11 +48,10 @@ export default function About() {
           className='text-center mb-16'
         >
           <h1 className='text-5xl md:text-6xl font-bold text-white mb-6'>
-            من أنا؟
+          Who am I?
           </h1>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed'>
-            مطور ويب شغوف بإنشاء تجارب رقمية مذهلة. أعمل على تطوير حلول مبتكرة 
-            تجمع بين الجمال والوظائف العملية.
+          A web developer passionate about creating stunning digital experiences, I develop innovative solutions that combine beauty and functionality.
           </p>
         </motion.div>
 
@@ -56,7 +62,7 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className='mb-20'
         >
-          <h2 className='text-3xl font-bold text-white mb-8 text-center'>المهارات التقنية</h2>
+          <h2 className='text-3xl font-bold text-white mb-8 text-center'>Technical skills</h2>
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
             {skills.map((category, index) => (
               <motion.div
@@ -84,7 +90,7 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className='mb-20'
         >
-          <h2 className='text-3xl font-bold text-white mb-8 text-center'>الخبرات العملية</h2>
+          <h2 className='text-3xl font-bold text-white mb-8 text-center'>Work experience</h2>
           <div className='space-y-8'>
             {experiences.map((exp, index) => (
               <motion.div
@@ -99,7 +105,10 @@ export default function About() {
                   <span className='text-blue-400 font-medium'>{exp.year}</span>
                 </div>
                 <h4 className='text-lg text-gray-300 mb-2'>{exp.company}</h4>
-                <p className='text-gray-400'>{exp.description}</p>
+                {exp.description.map((des,idx)=>(
+                  <p className='text-gray-400' key={idx}>{des}</p>
+                ))}
+                
               </motion.div>
             ))}
           </div>
@@ -112,13 +121,13 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className='mb-20'
         >
-          <h2 className='text-3xl font-bold text-white mb-8 text-center'>الإنجازات</h2>
+          <h2 className='text-3xl font-bold text-white mb-8 text-center'>Achievements</h2>
           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
             {[
-              { icon: FaCode, number: '50+', text: 'مشروع مكتمل' },
-              { icon: FaPalette, number: '30+', text: 'تصميم واجهة' },
-              { icon: FaRocket, number: '15+', text: 'عميل سعيد' },
-              { icon: FaUsers, number: '5+', text: 'سنوات خبرة' }
+              { icon: FaCode, number: '10+', text: 'Completed project' },
+              { icon: FaPalette, number: '7+', text: 'interface design' },
+              { icon: FaRocket, number: '15+', text: 'Happy customer' },
+              { icon: FaUsers, number: '1+', text: 'Years of experience' }
             ].map((achievement, index) => (
               <motion.div
                 key={index}
@@ -136,7 +145,7 @@ export default function About() {
         </motion.section>
 
         {/* التعليم */}
-        <motion.section
+        {/* <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -159,7 +168,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.section>
+        </motion.section> */}
       </div>
     </main>
   )
