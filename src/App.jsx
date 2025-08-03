@@ -3,6 +3,7 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './utils/routes';
 import MouseInteraction from './components/threejs/MouseInteraction';
 import { DarkModeContextProvider } from './context/dark-mode';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <RouterProvider router={router} />
         <MouseInteraction />
       </DarkModeContextProvider>
+      <Toaster />
     </>
   );
 }

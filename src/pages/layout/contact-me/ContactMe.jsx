@@ -1,24 +1,29 @@
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa'
+import { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 export default function ContactMe() {
+  const [isLoading, setIsLoading] = useState(false);
+  const form = useRef();
   const contactInfo = [
     {
       icon: FaEnvelope,
-      title: 'البريد الإلكتروني',
-      value: 'mahmoud@example.com',
-      link: 'mailto:mahmoud@example.com'
+      title: 'e-mail',
+      value: 'mahmoudabdelhamied68@gmail.com',
+      link: 'mailto:mahmoudabdelhamied68@gmail.com'
     },
     {
       icon: FaPhone,
-      title: 'رقم الهاتف',
-      value: '+20 123 456 7890',
-      link: 'tel:+201234567890'
+      title: 'phone number',
+      value: '+20 128 944 1249',
+      link: 'tel:+201289441249'
     },
     {
       icon: FaMapMarkerAlt,
-      title: 'الموقع',
-      value: 'القاهرة، مصر',
+      title: 'Site',
+      value: 'Cairo, Egypt',
       link: '#'
     }
   ]
@@ -27,31 +32,49 @@ export default function ContactMe() {
     {
       icon: FaLinkedin,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/mahmoud-abdelhmied',
+      url: 'https://www.linkedin.com/in/mahmoud-abd-alhamied-704761139',
       color: 'hover:bg-blue-600'
     },
     {
       icon: FaGithub,
       name: 'GitHub',
-      url: 'https://github.com/mahmoud-dev',
-      color: 'hover:bg-gray-700'
+      url: 'https://github.com/mahmoud358',
+      color: 'hover:bg-blue-700'
     },
     {
-      icon: FaTwitter,
-      name: 'Twitter',
-      url: 'https://twitter.com/mahmoud_dev',
+      icon: FaWhatsapp,
+      name: 'WhatsApp',
+      url: 'https://wa.me/201289441249',
       color: 'hover:bg-blue-400'
     }
   ]
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // هنا يمكن إضافة منطق إرسال النموذج
-    alert('تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.')
+ 
+    setIsLoading(true)
+
+
+    emailjs.sendForm(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, form.current, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+      .then((result) => {
+        console.log(result.text);
+        setIsLoading(false)
+        toast.success('Message sent successfully', {
+          duration: 5000,
+         
+        });
+      }, (error) => {
+        console.log(error);
+        setIsLoading(false)
+        toast.error('Message not sent', {
+          duration: 5000,
+         
+        });
+      });
   }
 
   return (
-    <main className='min-h-screen py-20 px-4'>
+    <main className='min-h-screen py-20 '>
       <div className='max-w-6xl mx-auto'>
         {/* العنوان الرئيسي */}
         <motion.div
@@ -61,24 +84,24 @@ export default function ContactMe() {
           className='text-center mb-16'
         >
           <h1 className='text-5xl md:text-6xl font-bold text-white mb-6'>
-            تواصل معي
+            Contact me
           </h1>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed'>
-            هل لديك مشروع تريد العمل عليه؟ أو تريد مناقشة فكرة معينة؟ 
-            لا تتردد في التواصل معي!
+            Do you have a project you'd like to work on or want to discuss a specific idea?
+            Don't hesitate to contact me!
           </p>
         </motion.div>
 
-        <div className='grid lg:grid-cols-2 gap-12'>
+        <div className='flex flex-col lg:flex-row gap-12'>
           {/* معلومات التواصل */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className='space-y-8'
+            className='space-y-8 w-full lg:w-1/2'
           >
             <div className='bg-gray-800 rounded-lg p-8'>
-              <h2 className='text-2xl font-bold text-white mb-6'>معلومات التواصل</h2>
+              <h2 className='text-2xl font-bold text-white mb-6'>Contact information</h2>
               <div className='space-y-6'>
                 {contactInfo.map((info, index) => (
                   <motion.a
@@ -87,14 +110,14 @@ export default function ContactMe() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className='flex items-center gap-4 p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors'
+                    className='flex items-center gap-4 p-2 md:p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors'
                   >
                     <div className='w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center'>
-                      <info.icon className='text-white text-xl' />
+                      <info.icon className='text-white text-lg lg:text-xl' />
                     </div>
                     <div>
                       <h3 className='text-white font-semibold'>{info.title}</h3>
-                      <p className='text-gray-300'>{info.value}</p>
+                      <p className='text-gray-300 text-xs lg:text-base'>{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
@@ -103,7 +126,7 @@ export default function ContactMe() {
 
             {/* روابط التواصل الاجتماعي */}
             <div className='bg-gray-800 rounded-lg p-8'>
-              <h2 className='text-2xl font-bold text-white mb-6'>التواصل الاجتماعي</h2>
+              <h2 className='text-2xl font-bold text-white mb-6'>Social media</h2>
               <div className='flex gap-4'>
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -124,7 +147,7 @@ export default function ContactMe() {
             </div>
 
             {/* ساعات العمل */}
-            <div className='bg-gray-800 rounded-lg p-8'>
+            {/* <div className='bg-gray-800 rounded-lg p-8'>
               <h2 className='text-2xl font-bold text-white mb-6'>ساعات العمل</h2>
               <div className='space-y-3'>
                 {[
@@ -138,7 +161,7 @@ export default function ContactMe() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* نموذج التواصل */}
@@ -146,42 +169,29 @@ export default function ContactMe() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className='w-full lg:w-1/2'
           >
             <div className='bg-gray-800 rounded-lg p-8'>
-              <h2 className='text-2xl font-bold text-white mb-6'>أرسل لي رسالة</h2>
-              <form onSubmit={handleSubmit} className='space-y-6'>
-                <div className='grid md:grid-cols-2 gap-6'>
-                  <div>
-                    <label htmlFor='firstName' className='block text-white font-medium mb-2'>
-                      الاسم الأول
-                    </label>
-                    <input
-                      type='text'
-                      id='firstName'
-                      name='firstName'
-                      required
-                      className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
-                      placeholder='أدخل اسمك الأول'
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor='lastName' className='block text-white font-medium mb-2'>
-                      اسم العائلة
-                    </label>
-                    <input
-                      type='text'
-                      id='lastName'
-                      name='lastName'
-                      required
-                      className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
-                      placeholder='أدخل اسم العائلة'
-                    />
-                  </div>
-                </div>
+              <h2 className='text-2xl font-bold text-white mb-6'>Send me a message</h2>
+              <form onSubmit={handleSubmit} ref={form} className='space-y-6'>
 
                 <div>
+                  <label htmlFor='fullName' className='block text-white font-medium mb-2'>
+                    Full name
+                  </label>
+                  <input
+                    type='text'
+                    id='fullName'
+                    name='fullName'
+                    required
+                    className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
+                    placeholder='Enter your full name'
+                  />
+                </div>
+                
+                <div>
                   <label htmlFor='email' className='block text-white font-medium mb-2'>
-                    البريد الإلكتروني
+                    Email
                   </label>
                   <input
                     type='email'
@@ -189,13 +199,12 @@ export default function ContactMe() {
                     name='email'
                     required
                     className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
-                    placeholder='أدخل بريدك الإلكتروني'
+                    placeholder='Enter your email'
                   />
                 </div>
-
-                <div>
-                  <label htmlFor='subject' className='block text-white font-medium mb-2'>
-                    الموضوع
+                {/* <div>
+                  <label htmlFor='email' className='block text-white font-medium mb-2'>
+                    Subject
                   </label>
                   <input
                     type='text'
@@ -203,13 +212,15 @@ export default function ContactMe() {
                     name='subject'
                     required
                     className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors'
-                    placeholder='أدخل موضوع الرسالة'
+                    placeholder='Enter your subject'
                   />
-                </div>
+                </div> */}
+
+
 
                 <div>
                   <label htmlFor='message' className='block text-white font-medium mb-2'>
-                    الرسالة
+                    Message
                   </label>
                   <textarea
                     id='message'
@@ -217,17 +228,21 @@ export default function ContactMe() {
                     rows='6'
                     required
                     className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 focus:border-blue-500 focus:outline-none transition-colors resize-none'
-                    placeholder='اكتب رسالتك هنا...'
+                    placeholder='Write your message here...'
                   ></textarea>
                 </div>
-
+              
                 <motion.button
                   type='submit'
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className='w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg'
                 >
-                  إرسال الرسالة
+                  
+                  {isLoading ? <div className='flex items-center justify-center'>
+                    <div className='w-7 h-7 border-t-2 border-b-2 border-white rounded-full animate-spin'></div>
+                    <span className='ml-2'>Sending...</span>
+                  </div> : 'Send message'}
                 </motion.button>
               </form>
             </div>
@@ -242,29 +257,30 @@ export default function ContactMe() {
           className='mt-16'
         >
           <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center'>
-            <h3 className='text-2xl font-bold text-white mb-4'>دعنا نعمل معاً!</h3>
+            <h3 className='text-2xl font-bold text-white mb-4'>Let's work together!</h3>
             <p className='text-gray-200 mb-6 max-w-2xl mx-auto'>
-              أنا متحمس دائماً للعمل على مشاريع جديدة ومثيرة. 
-              سواء كنت تريد تطوير موقع ويب، تطبيق، أو أي مشروع تقني آخر، 
-              أنا هنا لمساعدتك في تحقيق رؤيتك.
+              I'm always excited to work on new and exciting projects.
+              Whether you need a web development, mobile app, or any other technical project,
+              I'm here to help you achieve your vision.
             </p>
             <div className='flex flex-wrap justify-center gap-4'>
               <span className='px-4 py-2 bg-white bg-opacity-20 text-white rounded-full'>
-                تطوير الويب
+                Web development
               </span>
               <span className='px-4 py-2 bg-white bg-opacity-20 text-white rounded-full'>
-                تطبيقات الموبايل
+                Mobile apps
               </span>
               <span className='px-4 py-2 bg-white bg-opacity-20 text-white rounded-full'>
-                تصميم واجهات
+                UI/UX design
               </span>
               <span className='px-4 py-2 bg-white bg-opacity-20 text-white rounded-full'>
-                استشارات تقنية
+                Technical consulting
               </span>
             </div>
           </div>
         </motion.div>
       </div>
+      
     </main>
   )
 }

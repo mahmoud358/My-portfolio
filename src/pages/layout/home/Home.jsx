@@ -1,5 +1,5 @@
 import myPhoto from '../../../assets/my photo.jpg'
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
@@ -65,8 +65,8 @@ export default function Home() {
               {[
                 { icon: FaGithub, href: 'https://github.com/mahmoud358', label: 'GitHub' },
                 { icon: FaLinkedin, href: 'https://www.linkedin.com/in/mahmoud-abd-alhamied-704761139', label: 'LinkedIn' },
-                { icon: FaTwitter, href: '#', label: 'Twitter' },
-                { icon: FaEnvelope, href: '', label: 'Email' }
+                { icon: FaWhatsapp, href: 'https://wa.me/201289441249', label: 'WhatsApp' },
+                { icon: FaEnvelope, href: 'mailto:mahmoudabdelhamied68@gmail.com', label: 'Email' }
               ].map((social, index) => (
                 <motion.a
                   key={social.label}

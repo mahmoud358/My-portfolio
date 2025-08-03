@@ -131,7 +131,7 @@ const Layout = () => {
         </div>
 
         {/* تأثيرات إضافية */}
-        <div className="fixed bottom-4 right-4 z-30">
+        <div className="fixed bottom-4 right-4 z-30 hidden lg:block">
           <motion.div
             animate={{
               scale: [1, 1.1, 1],
