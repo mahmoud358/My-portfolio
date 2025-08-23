@@ -1,91 +1,82 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa'
+import ProjectCard from '../../../components/project-card/projectCard'
+import smarCh from '../../../assets/smarch.webp'
+import udemy from '../../../assets/download.png'
+import movieHub from '../../../assets/movieHub.webp'
+import fixyland from '../../../assets/fixyland.webp'
+import portfolio from '../../../assets/portfolio.webp'
 
 export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'تطبيق إدارة المهام',
-      description: 'تطبيق ويب متقدم لإدارة المهام والمشاريع مع واجهة تفاعلية وميزات متقدمة.',
-      image: 'https://via.placeholder.com/400x250/1e40af/ffffff?text=Task+Manager',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+      title: 'SMAR-CH Site',
+      description: 'Chalet management and reservation',
+      image: smarCh,
+      technologies: ['React', 'Node.js', 'MongoDB', 'Express','Tailwind CSS','Pusher Realtime Technology'],
       github: '#',
-      live: '#',
-      featured: true
+      live: 'https://smarch-web-server.vercel.app/',
+      featured: true,
+      isPrivate: true
     },
     {
       id: 2,
-      title: 'متجر إلكتروني',
-      description: 'منصة تسوق إلكتروني كاملة مع نظام دفع وإدارة مخزون متقدم.',
-      image: 'https://via.placeholder.com/400x250/7c3aed/ffffff?text=E-Commerce',
-      technologies: ['React', 'Stripe', 'Firebase', 'Tailwind CSS'],
-      github: '#',
-      live: '#',
-      featured: true
+      title: ' Udemy Clone (Front-End)',
+      description: 'An interactive educational platform with a course management system and educational content.',
+      image: udemy,
+      technologies: ['Next JS', 'Material UI', 'PayPal', 'Pusher Realtime Technology'],
+      github: 'https://github.com/mahmoud358/udemy-next',
+      live: 'https://udemy-next-nu.vercel.app/',
+      featured: true,
+      isPrivate: false
     },
     {
       id: 3,
-      title: 'تطبيق المحادثات',
-      description: 'تطبيق محادثات في الوقت الفعلي مع ميزات مشاركة الملفات والرسائل الصوتية.',
-      image: 'https://via.placeholder.com/400x250/dc2626/ffffff?text=Chat+App',
-      technologies: ['React', 'Socket.io', 'Node.js', 'MongoDB'],
-      github: '#',
-      live: '#',
-      featured: false
+      title: 'Udemy Clone (Back-End)',
+      description: 'An interactive educational platform with a course management system and educational content.',
+      image: udemy,
+      technologies: ['Node.js', 'MongoDB', 'Express', 'Pusher Realtime Technology'],
+      github: 'https://github.com/mahmoud358/udemy-backend',
+      live: 'https://udemy-next-nu.vercel.app/',
+      featured: true,
+      isPrivate: false
     },
     {
       id: 4,
-      title: 'منصة التعلم الإلكتروني',
-      description: 'منصة تعليمية تفاعلية مع نظام إدارة الدورات والمحتوى التعليمي.',
-      image: 'https://via.placeholder.com/400x250/059669/ffffff?text=E-Learning',
-      technologies: ['React', 'Django', 'PostgreSQL', 'AWS'],
-      github: '#',
-      live: '#',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'تطبيق تتبع اللياقة',
-      description: 'تطبيق للياقة البدنية مع تتبع التمارين والتغذية والإحصائيات.',
-      image: 'https://via.placeholder.com/400x250/ea580c/ffffff?text=Fitness+Tracker',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Chart.js'],
-      github: '#',
-      live: '#',
-      featured: false
-    },
-    {
-      id: 6,
-      title: 'موقع Portfolio تفاعلي',
-      description: 'موقع شخصي تفاعلي مع خلفية ثلاثية الأبعاد وتصميم حديث.',
-      image: 'https://via.placeholder.com/400x250/0891b2/ffffff?text=Portfolio',
+      title: 'My Portfolio ',
+      description: 'Interactive personal website with 3D background and modern design.',
+      image: portfolio,
       technologies: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS'],
       github: '#',
       live: '#',
-      featured: false
+      featured: false,
+      isPrivate: false
+    },
+    {
+      id: 5,
+      title: 'MovieHub',
+      description: 'Website for movies and TV shows',
+      image: movieHub,
+      technologies: ['React', 'Tailwind CSS'],
+      github: 'https://github.com/mahmoud358/MoviesHub',
+      live: 'https://movies-hub-eight-chi.vercel.app/',
+      featured: false,
+      isPrivate: false
+    },
+    {
+      id: 6,
+      title: 'fixyland template',
+      description: 'Template for a website with a modern design and user-friendly interface.',
+      image: fixyland,
+      technologies: ['React ', 'Tailwind CSS', 'Framer Motion'],
+      github: 'https://github.com/mahmoud358/task',
+      live: 'https://fixyland-rouge.vercel.app/',
+      featured: false,
+      isPrivate: false
     }
   ]
 
-  const getTechnologyIcon = (tech) => {
-    const icons = {
-      'React': FaReact,
-      'Node.js': FaNodeJs,
-      'MongoDB': FaDatabase,
-      'Express': FaNodeJs,
-      'Firebase': FaDatabase,
-      'PostgreSQL': FaDatabase,
-      'Django': FaNodeJs,
-      'Socket.io': FaNodeJs,
-      'Stripe': FaNodeJs,
-      'AWS': FaNodeJs,
-      'React Native': FaReact,
-      'Redux': FaReact,
-      'Chart.js': FaNodeJs,
-      'Three.js': FaReact,
-      'Framer Motion': FaReact,
-      'Tailwind CSS': FaReact
-    }
-    return icons[tech] || FaNodeJs
-  }
+ 
 
   return (
     <main className='min-h-screen py-20 px-4'>
@@ -98,82 +89,27 @@ export default function Projects() {
           className='text-center mb-16'
         >
           <h1 className='text-5xl md:text-6xl font-bold text-white mb-6'>
-            مشاريعي
+          Projects
           </h1>
           <p className='text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed'>
-            مجموعة من المشاريع المتنوعة التي تعكس مهاراتي وخبراتي في تطوير الويب
+          A collection of diverse projects that reflect my skills and experience in web development
           </p>
         </motion.div>
 
         {/* المشاريع المميزة */}
-        <motion.section
+        {/* <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className='mb-20'
         >
-          <h2 className='text-3xl font-bold text-white mb-8 text-center'>المشاريع المميزة</h2>
+          <h2 className='text-3xl font-bold text-white mb-8 text-center'>Featured Projects</h2>
           <div className='grid lg:grid-cols-2 gap-8'>
             {projects.filter(p => p.featured).map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className='bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300'
-              >
-                <div className='relative'>
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className='w-full h-48 object-cover'
-                  />
-                  <div className='absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium'>
-                    مميز
-                  </div>
-                </div>
-                <div className='p-6'>
-                  <h3 className='text-2xl font-bold text-white mb-3'>{project.title}</h3>
-                  <p className='text-gray-300 mb-4 leading-relaxed'>{project.description}</p>
-                  
-                  {/* التقنيات المستخدمة */}
-                  <div className='flex flex-wrap gap-2 mb-6'>
-                    {project.technologies.map((tech) => {
-                      const Icon = getTechnologyIcon(tech)
-                      return (
-                        <span
-                          key={tech}
-                          className='flex items-center gap-1 px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-sm'
-                        >
-                          <Icon className='text-blue-400' />
-                          {tech}
-                        </span>
-                      )
-                    })}
-                  </div>
-                  
-                  {/* روابط المشروع */}
-                  <div className='flex gap-4'>
-                    <a
-                      href={project.github}
-                      className='flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors'
-                    >
-                      <FaGithub />
-                      الكود
-                    </a>
-                    <a
-                      href={project.live}
-                      className='flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'
-                    >
-                      <FaExternalLinkAlt />
-                      عرض المشروع
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
+              <ProjectCard  project={project} index={index} />
             ))}
           </div>
-        </motion.section>
+        </motion.section> */}
 
         {/* جميع المشاريع */}
         <motion.section
@@ -181,61 +117,62 @@ export default function Projects() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h2 className='text-3xl font-bold text-white mb-8 text-center'>جميع المشاريع</h2>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          <h2 className='text-3xl font-bold text-white mb-8 text-center'>All Projects</h2>
+          <div className='grid md:grid-cols-2 lg:grid-cols-2 gap-6'>
             {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className='bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300'
-              >
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className='w-full h-48 object-cover'
-                />
-                <div className='p-6'>
-                  <h3 className='text-xl font-bold text-white mb-3'>{project.title}</h3>
-                  <p className='text-gray-300 mb-4 text-sm leading-relaxed'>{project.description}</p>
+              // <motion.div
+              //   key={project.id}
+              //   initial={{ opacity: 0, y: 30 }}
+              //   animate={{ opacity: 1, y: 0 }}
+              //   transition={{ duration: 0.6, delay: index * 0.1 }}
+              //   className='bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300'
+              // >
+              //   <img 
+              //     src={project.image} 
+              //     alt={project.title}
+              //     className='w-full h-48 object-cover'
+              //   />
+              //   <div className='p-6'>
+              //     <h3 className='text-xl font-bold text-white mb-3'>{project.title}</h3>
+              //     <p className='text-gray-300 mb-4 text-sm leading-relaxed'>{project.description}</p>
                   
-                  {/* التقنيات المستخدمة */}
-                  <div className='flex flex-wrap gap-1 mb-4'>
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className='px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs'
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className='px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs'>
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
+              //     {/* التقنيات المستخدمة */}
+              //     <div className='flex flex-wrap gap-1 mb-4'>
+              //       {project.technologies.slice(0, 3).map((tech) => (
+              //         <span
+              //           key={tech}
+              //           className='px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs'
+              //         >
+              //           {tech}
+              //         </span>
+              //       ))}
+              //       {project.technologies.length > 3 && (
+              //         <span className='px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs'>
+              //           +{project.technologies.length - 3}
+              //         </span>
+              //       )}
+              //     </div>
                   
-                  {/* روابط المشروع */}
-                  <div className='flex gap-2'>
-                    <a
-                      href={project.github}
-                      className='flex-1 flex items-center justify-center gap-1 px-3 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors text-sm'
-                    >
-                      <FaGithub className='text-sm' />
-                      الكود
-                    </a>
-                    <a
-                      href={project.live}
-                      className='flex-1 flex items-center justify-center gap-1 px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm'
-                    >
-                      <FaExternalLinkAlt className='text-sm' />
-                      عرض
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
+              //     {/* روابط المشروع */}
+              //     <div className='flex gap-2'>
+              //       <a
+              //         href={project.github}
+              //         className='flex-1 flex items-center justify-center gap-1 px-3 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors text-sm'
+              //       >
+              //         <FaGithub className='text-sm' />
+              //         Code
+              //       </a>
+              //       <a
+              //         href={project.live}
+              //         className='flex-1 flex items-center justify-center gap-1 px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm'
+              //       >
+              //         <FaExternalLinkAlt className='text-sm' />
+              //         View
+              //       </a>
+              //     </div>
+              //   </div>
+              // </motion.div>
+              <ProjectCard  project={project} index={index} />
             ))}
           </div>
         </motion.section>
@@ -248,13 +185,13 @@ export default function Projects() {
           className='mt-20'
         >
           <div className='bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center'>
-            <h3 className='text-2xl font-bold text-white mb-6'>إحصائيات المشاريع</h3>
+            <h3 className='text-2xl font-bold text-white mb-6'>Project Statistics</h3>
             <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
               {[
-                { number: '20+', label: 'مشروع مكتمل' },
-                { number: '15+', label: 'عميل سعيد' },
-                { number: '5+', label: 'سنوات خبرة' },
-                { number: '100%', label: 'رضا العملاء' }
+                { number: '20+', label: 'Completed Projects' },
+                { number: '15+', label: 'Satisfied Clients' },
+                { number: '5+', label: 'Years of Experience' },
+                { number: '100%', label: 'Client Satisfaction' }
               ].map((stat, index) => (
                 <div key={index}>
                   <div className='text-3xl font-bold text-white mb-2'>{stat.number}</div>
