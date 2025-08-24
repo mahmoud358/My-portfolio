@@ -9,6 +9,7 @@ import IconHeader from '../../components/icon-header/IconHeader';
 import ThreeScene from '../../components/threejs/ThreeScene';
 import { darkModeContext } from '../../context/dark-mode';
 import { CameraProvider } from '../../context/camera-context';
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 const Layout = () => {
   const location = useLocation();
@@ -109,6 +110,7 @@ const Layout = () => {
         <div className="relative z-20 flex flex-col min-h-screen items-center justify-center px-4 py-8">
           {/* <Header /> */}
           <div className="flex flex-col md:flex-row  w-full   mt-6">
+            <ScrollToTop/>
             <IconHeader />
             {/* <main className="flex-1     rounded-2xl shadow-xl p-8  border border-white/20  my-8 flex flex-col justify-center items-center"> */}
               <AnimatePresence mode="wait">
