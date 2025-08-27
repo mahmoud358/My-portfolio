@@ -287,7 +287,7 @@ const IconHeader = () => {
               transition={{ delay: 0.2 }}
               className="text-xl font-bold text-white"
             >
-              Mohamed Abdelhamid
+              Mahmoud Abdelhamid
             </motion.h1>
           </motion.div>
 
