@@ -28,7 +28,7 @@ export default function Home() {
               <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-blue-500/40 via-purple-500/30 to-cyan-400/30 blur-2xl z-[-1]" />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white mt-2 text-center md:text-left drop-shadow-lg">
-              Mohamed Abdelhamid
+              Mahmoud Abdelhamid
             </h1>
             <h2 className="text-xl md:text-2xl text-blue-300 font-semibold text-center md:text-left">
               Full Stack Developer Using MEARN Stack
